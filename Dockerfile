@@ -11,9 +11,9 @@ RUN \
     apt-get install -y git && \
     apt-get install -y nodejs && \
     apt-get install -y npm && \
-    apt-get install nodejs-legacy && \
-    apt-get install libavahi-compat-libdnssd-dev && \
-    apt-get install libasound2-dev && \
+    apt-get install -y nodejs-legacy && \
+    apt-get install -y libavahi-compat-libdnssd-dev && \
+    apt-get install -y libasound2-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 #install dasher
