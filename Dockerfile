@@ -17,12 +17,16 @@ RUN \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 #install dasher
-RUN cd /root && export GIT_SSL_NO_VERIFY=1 && \
+#RUN cd /root && export GIT_SSL_NO_VERIFY=1 && \
     git config --global http.sslVerify false && \
     git clone https://github.com/stephen/airsonos.git
+#
+#OR
+RUN npm install -g airplay-sonos
 
-WORKDIR /root/airsonos
-RUN cd /root/airsonos && npm install -g
+#WORKDIR /root/airsonos
+#RUN cd /root/airsonos && npm install -g
 
 # Baseimage init process
-CMD cd /root/airsonos  && node ./bin/index.js
+#CMD cd /root/airsonos  && node ./bin/index.js
+CMD airplay-sonos
