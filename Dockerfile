@@ -18,8 +18,8 @@ RUN \
 
 #install dasher
 #RUN cd /root && export GIT_SSL_NO_VERIFY=1 && \
-    git config --global http.sslVerify false && \
-    git clone https://github.com/stephen/airsonos.git
+#    git config --global http.sslVerify false && \
+#    git clone https://github.com/stephen/airsonos.git
 #
 #OR
 RUN npm install -g airplay-sonos
