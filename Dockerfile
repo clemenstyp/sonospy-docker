@@ -11,20 +11,18 @@ RUN \
     apt-get install -y git && \
     apt-get install -y nodejs && \
     apt-get install -y npm && \
-    apt-get install nodejs-legacy && \ 
+    apt-get install nodejs-legacy && \
+    apt-get install libavahi-compat-libdnssd-dev && \
+    apt-get install libasound2-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 #install dasher
 RUN cd /root && export GIT_SSL_NO_VERIFY=1 && \
     git config --global http.sslVerify false && \
-    git clone https://github.com/maddox/dasher.git
+    git clone https://github.com/stephen/airsonos.git
 
-WORKDIR /root/dasher
-RUN cd /root/dasher && npm install
-ADD config.json /root/dasher/config.json
-
-# Interface the environment
-VOLUME /root/dasher/config
+WORKDIR /root/airsonos
+RUN cd /root/airsonos && npm install -g
 
 # Baseimage init process
-CMD cd /root/dasher && cp -n config.json /root/dasher/config/config.json  && npm run start
+CMD cd /root/airsonos  && node ./bin/index.js
